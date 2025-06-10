@@ -2,6 +2,7 @@ package com.itsqmet.app_biblioteca.servicio;
 
 import com.itsqmet.app_biblioteca.entidad.Autor;
 import com.itsqmet.app_biblioteca.repositorio.AutorRepositorio;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,5 +38,12 @@ public class AutorServicio {
     //    Elimnar autor
     public void eliminarAutor(Long id) {
         autorRepositorio.deleteById(id);
+    }
+
+//    Obtere autor con sus libros
+    @Transactional
+    public Autor obtenerAutorLibros(Long id){
+        Autor autor = autorRepositorio.findById(id).orElseThrow();
+        return autor;
     }
 }

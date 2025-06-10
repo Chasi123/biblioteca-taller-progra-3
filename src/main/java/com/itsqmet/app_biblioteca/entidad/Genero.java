@@ -3,25 +3,21 @@ package com.itsqmet.app_biblioteca.entidad;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @Entity
-public class Autor {
+public class Genero{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nombre;
+    private String descripcion;
 
-    private String nacionalidad;
 
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
-    private String fechaNacimiento;
-
-    @OneToMany(mappedBy = "autor", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "genero", fetch = FetchType.LAZY)
     private List<Libro> libros;
+
 }

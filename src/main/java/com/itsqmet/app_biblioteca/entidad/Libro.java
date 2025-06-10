@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name="libros")
 public class Libro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,4 +24,8 @@ public class Libro {
     @ManyToOne
     @JoinColumn (name = "codigo_autor")
     private Autor autor;
+
+    @ManyToOne
+    @JoinColumn (name = "codigo_genero")
+    private Genero genero;
 }
