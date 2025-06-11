@@ -16,7 +16,7 @@ public class Genero{
 
     private String descripcion;
 
-
+//Relacion con libros
     @OneToMany(mappedBy = "genero", fetch = FetchType.LAZY)
     private List<Libro> libros;
 

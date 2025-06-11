@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @Entity
@@ -28,4 +30,10 @@ public class Libro {
     @ManyToOne
     @JoinColumn (name = "codigo_genero")
     private Genero genero;
+
+    @OneToMany (mappedBy = "libro")
+    private List<Prestamo> prestamos;
+
+//    @ManyToMany( mappedBy = "libros")
+//    private List<Usuario> usuario;
 }

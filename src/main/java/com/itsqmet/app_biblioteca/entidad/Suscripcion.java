@@ -16,6 +16,6 @@ public class Suscripcion {
     private Enum tipo;
 
     @OneToOne
-    @JoinColumn (name = "codigo_usuario")
+    @JoinColumn (name = "codigo_usuario", unique = true)
     private Usuario usuario;
 }
